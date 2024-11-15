@@ -175,8 +175,8 @@
                         </div>
                     </div>
                     <!--//author-card-->
-                    @await Component.InvokeAsync("_CommentList")
-                    @await Component.InvokeAsync("_AddComment")
+                    @await Component.InvokeAsync("_CommentList",new {id=ViewBag.i})
+                    @await Html.PartialAsync("/Views/Comment/AddComment.cshtml")
 
 
                     
