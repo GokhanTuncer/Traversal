@@ -2002,6 +2002,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Member\Data\" />
+    <Folder Include="wwwroot\userimages\" />
   </ItemGroup>
 
 </Project>
