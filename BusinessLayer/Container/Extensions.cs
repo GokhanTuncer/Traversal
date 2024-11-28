@@ -17,10 +17,17 @@ namespace BusinessLayer.Container
         {
             builder.AddScoped<ICommentService, CommentManager>();
             builder.AddScoped<ICommentDal, EfCommentDal>();
+
             builder.AddScoped<IDestinationService, DestinationManager>();
             builder.AddScoped<IDestinationDal, EfDestinationDal>();
+
             builder.AddScoped<IAppUserService, AppUserManager>();
             builder.AddScoped<IAppUserDal, EfAppUserDal>();
+
+            builder.AddScoped<IReservationService, ReservationManager>();
+            builder.AddScoped<IReservationDal, EfReservationDal>();
+
+
         }
     }
 }
