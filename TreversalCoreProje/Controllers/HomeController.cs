@@ -15,13 +15,19 @@ namespace TreversalCoreProje.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Index sayfasý çaðrýldý");
+            _logger.LogError("Error log çaðrýldý");
+
             return View();
         }
 
         public IActionResult Privacy()
         {
+            DateTime d = Convert.ToDateTime(DateTime.Now.ToLongDateString());
+            _logger.LogInformation(d + "Privacy sayfasý çaðrýldý");
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
