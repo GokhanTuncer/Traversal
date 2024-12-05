@@ -31,8 +31,15 @@ namespace BusinessLayer.Container
             builder.AddScoped<IGuideDal, EfGuideDal>();
 
             builder.AddScoped<IExcelService, ExcelManager>();
+			builder.AddScoped<IPdfService, PdfManager>();
+
+            builder.AddScoped<IContactUsService, ContactUsManager>();
+			builder.AddScoped<IContactUsDal, EfContactUsDal>();
 
 
-        }
-    }
+
+
+
+		}
+	}
 }
