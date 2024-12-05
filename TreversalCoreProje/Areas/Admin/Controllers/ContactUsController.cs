@@ -16,7 +16,7 @@ namespace TreversalCoreProje.Areas.Admin.Controllers
 		public IActionResult Index()
 		{
 			var values = _contactUsService.TGetList();
-			return View();
+			return View(values);
 		}
 	}
 }
