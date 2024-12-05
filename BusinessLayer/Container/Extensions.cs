@@ -36,10 +36,11 @@ namespace BusinessLayer.Container
             builder.AddScoped<IContactUsService, ContactUsManager>();
 			builder.AddScoped<IContactUsDal, EfContactUsDal>();
 
+            builder.AddScoped<IAnnouncementService, AnnouncementManager>();
+            builder.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
 
 
 
-
-		}
+        }
 	}
 }
