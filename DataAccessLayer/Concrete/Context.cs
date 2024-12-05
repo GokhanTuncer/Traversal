@@ -20,7 +20,8 @@ namespace DataAccessLayer.Concrete
         public DbSet<About> About { get; set; }
         public DbSet<About2> About2 { get; set; }
         public DbSet<Contact> Contact { get; set; }
-        public DbSet<Destination> Destination { get; set; }
+		public DbSet<ContactUs> ContactUs { get; set; }
+		public DbSet<Destination> Destination { get; set; }
         public DbSet<Feature> Feature { get; set; }
         public DbSet<Feature2> Feature2 { get; set; }
         public DbSet<Guide> Guide { get; set; }
@@ -29,6 +30,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Testimonial> Testimonial { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+
 
     }
 }
