@@ -23,7 +23,7 @@ builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
 builder.Services.AddAutoMapper(typeof(StartupBase));
 
-builder.Services.AddTransient<IValidator<AnnouncementAddDTOs>,AnnouncementValidator>();
+builder.Services.CustomValidator();
 
 
 
