@@ -25,6 +25,7 @@ builder.Services.AddAutoMapper(typeof(StartupBase));
 
 builder.Services.CustomValidator();
 
+builder.Services.AddHttpClient();
 
 
 builder.Services.AddLogging(x =>
