@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Build.Execution;
 using Newtonsoft.Json.Linq;
+using TreversalCoreProje.CQRS.Handlers.DestinationHandlers;
 using TreversalCoreProje.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +28,7 @@ builder.Services.CustomValidator();
 
 builder.Services.AddHttpClient();
 
-
+builder.Services.AddScoped<GetAllDestinationQueryHandler>();
 builder.Services.AddLogging(x =>
 {
     x.ClearProviders();
