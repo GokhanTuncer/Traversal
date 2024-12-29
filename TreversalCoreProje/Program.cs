@@ -29,6 +29,10 @@ builder.Services.CustomValidator();
 builder.Services.AddHttpClient();
 
 builder.Services.AddScoped<GetAllDestinationQueryHandler>();
+builder.Services.AddScoped<GetDestinationByIDQueryHandler>();
+builder.Services.AddScoped<CreateDestinationCommandHandler>();
+builder.Services.AddScoped<RemoveDestinationCommandHandler>();
+builder.Services.AddScoped<UpdateDestinationCommandHandler>();
 builder.Services.AddLogging(x =>
 {
     x.ClearProviders();
