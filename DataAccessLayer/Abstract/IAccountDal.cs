@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IAccountDal : IGenericDal<Account>
+    public interface IAccountDal : IGenericUoWDal<Account>
     {
     }
 }
