@@ -21,6 +21,7 @@ namespace TreversalCoreProje.Controllers
         public IActionResult DestinationDetails(int id)
         {
             ViewBag.i = id;
+            ViewBag.destId = id;
             var values=destinationManager.TGetByID(id);
             return View(values);
         }
