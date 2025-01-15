@@ -20,5 +20,13 @@ namespace DataAccessLayer.EntityFramework
                 return c.Comment.Include(x=>x.Destination).ToList();
             }
         }
+
+        public List<Comment> GetListCommentWithDestinationAndUser()
+        {
+            using(var c = new Context())
+            {
+                return c.Comment.Include(x => x.AppUser).ToList();
+            }
+        }
     }
 }
