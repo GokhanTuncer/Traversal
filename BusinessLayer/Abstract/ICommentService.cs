@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace BusinessLayer.Abstract
     {
         List<Comment> TGetDestinationById(int id);
         List<Comment> TGetListCommentWithDestination();
-        public List<Comment> TGetListCommentWithDestinationAndUser();
+        public List<Comment> TGetListCommentWithDestinationAndUser(int id);
 
     }
 }
