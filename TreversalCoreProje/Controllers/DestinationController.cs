@@ -2,6 +2,7 @@
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TreversalCoreProje.Controllers
@@ -10,6 +11,11 @@ namespace TreversalCoreProje.Controllers
 	public class DestinationController : Controller
 	{
         DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
+        private readonly UserManager<AppUser> _userManager;
+        public DestinationController(UserManager<AppUser> userManager)
+        {
+            _userManager = userManager;
+        }
         public IActionResult Index()
 		{
             var values = destinationManager.TGetList();
@@ -18,10 +24,12 @@ namespace TreversalCoreProje.Controllers
 
         //Tur Detayı oluşturma
         [HttpGet]
-        public IActionResult DestinationDetails(int id)
+        public async Task<IActionResult> DestinationDetails(int id)
         {
             ViewBag.i = id;
             ViewBag.destId = id;
+            var value = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.userId=value.Id;
             var values=destinationManager.TGetByID(id);
             return View(values);
         }
