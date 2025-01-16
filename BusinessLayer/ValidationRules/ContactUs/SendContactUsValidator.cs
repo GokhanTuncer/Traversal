@@ -20,7 +20,7 @@ namespace BusinessLayer.ValidationRules.ContactUs
             RuleFor(x => x.Subject).MinimumLength(5).WithMessage("Konu alanı 5 karakterden az olamaz");
             RuleFor(x => x.Subject).MinimumLength(100).WithMessage("Konu alanı 100 karakterden fazla olamaz");
             RuleFor(x => x.Mail).MinimumLength(5).WithMessage("Mail alanı 5 karakterden fazla olamaz");
-            RuleFor(x => x.Mail).MinimumLength(100).WithMessage("Mail alanı 100 karakterden fazla olamaz");
+            RuleFor(x => x.Mail).MaximumLength(100).WithMessage("Mail alanı 100 karakterden fazla olamaz");
 
         }
     }
