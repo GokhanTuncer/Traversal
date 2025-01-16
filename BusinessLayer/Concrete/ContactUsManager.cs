@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace BusinessLayer.Concrete
 
 		public void TAdd(ContactUs t)
 		{
-			throw new NotImplementedException();
+			_contactUsDal.Insert(t);
 		}
 
         public void TContactUsStatusChangeToFalse(int id)
