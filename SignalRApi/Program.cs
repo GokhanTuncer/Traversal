@@ -57,6 +57,8 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+app.UseCors("CorsPolicy");
 app.UseEndpoints(endpoints =>
 {
 	endpoints.MapControllers();
