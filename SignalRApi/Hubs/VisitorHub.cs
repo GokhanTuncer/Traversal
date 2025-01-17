@@ -5,15 +5,15 @@ namespace SignalRApi.Hubs
 {
 	public class VisitorHub : Hub
 	{
-		private readonly VisitotService _visitorService;
+		private readonly VisitorService _visitorService;
 
-		public VisitorHub(VisitotService visitotService)
+		public VisitorHub(VisitorService visitotService)
 		{
 			_visitorService = visitotService;
 		}
 		public async Task GetVisitorList()
 		{
-			await Clients.All.SendAsync("GetVisitList","_visitorService")
+			await Clients.All.SendAsync("GetVisitList", _visitorService.GetVisitorChartList());
 		}
 	}
 }
