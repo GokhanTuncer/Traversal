@@ -4,6 +4,7 @@ using SignalRApi.DAL;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using SignalRApi.Model;
+using SignalRApi.Hubs;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,15 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddScoped<VisitorService>();
 builder.Services.AddSignalR();
+
+builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
+	builder =>
+	{
+		builder.AllowAnyHeader()
+		.AllowAnyMethod()
+		.SetIsOriginAllowed((host) => true)
+		.AllowCredentials();
+	}));
 
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<Context>(opt =>
 	opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -47,6 +57,12 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+app.UseEndpoints(endpoints =>
+{
+	endpoints.MapControllers();
+	endpoints.MapHub<VisitorHub>("/VisitorHub");
+});
+
 
 app.Run();
 
