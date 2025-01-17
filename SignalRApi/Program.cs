@@ -3,6 +3,7 @@ using SignalRApi.DAL;
 
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using SignalRApi.Model;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddScoped<VisitorService>();
+builder.Services.AddSignalR();
 
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<Context>(opt =>
 	opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
