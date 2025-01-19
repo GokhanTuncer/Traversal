@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SignalRApiForSql.DAL;
+using SignalRApiForSql.Hubs;
+using SignalRApiForSql.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<VisitorService>();
+builder.Services.AddSignalR();
+
+builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
+    builder =>
+    {
+        builder.AllowAnyHeader()
+        .AllowAnyMethod()
+        .SetIsOriginAllowed((host) => true)
+        .AllowCredentials();
+    }));
 builder.Services.AddDbContext<Context>(options =>
 {
     options.UseSqlServer(builder.Configuration["DefaultConnection"]);
@@ -23,7 +36,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("CorsPolicy");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHub<VisitorHub>("/VisitorHub");
+});
 app.UseAuthorization();
 
 app.MapControllers();
