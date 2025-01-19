@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using SignalRApiForSql.DAL;
 using SignalRApiForSql.Hubs;
 
