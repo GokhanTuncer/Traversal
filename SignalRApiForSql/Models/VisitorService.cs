@@ -43,6 +43,14 @@ namespace SignalRApiForSql.Models
                         visitorChart.VisitDate = reader.GetDateTime(0).ToShortDateString();
                         Enumerable.Range(1, 5).ToList().ForEach(x =>
                         {
+                            if (DBNull.Value.Equals(reader[x]))
+                            {
+                                visitorChart.Counts.Add(0);
+                            }
+                            else
+                            {
+                                visitorChart.Counts.Add(reader.GetInt32(x));
+                            }
                             visitorChart.Counts.Add(reader.GetInt32(x));
                         });
                         visitorCharts.Add(visitorChart);
