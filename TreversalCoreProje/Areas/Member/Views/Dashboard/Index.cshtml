@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
@@ -15,19 +14,18 @@
                 </ol>
                 <h6 class="text-white font-weight-bolder ms-2">Profile</h6>
             </nav>
-
         </div>
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid">
-        <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('~/soft-ui-dashboard/assets/img/curved-images/curved0.jpg'); background-position-y: 50%;">
+        <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('/soft-ui-dashboard/assets/img/curved-images/curved0.jpg'); background-position-y: 50%;">
             <span class="mask bg-gradient-primary opacity-6"></span>
         </div>
         <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
             <div class="row gx-4">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="~/userimages/@ViewBag.userImage" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                        <img src="@ViewBag.userImage" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                     </div>
                 </div>
                 <div class="col-auto my-auto">
@@ -36,7 +34,7 @@
                             @ViewBag.userName
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
-                           Traversal / Star Üye
+                            Traversal / Star Üye
                         </p>
                     </div>
                 </div>
@@ -115,7 +113,7 @@
             @await Component.InvokeAsync("_ProfileInformation")
             @await Component.InvokeAsync("_GuideList")
             @await Component.InvokeAsync("_LastDestinations")
-            
+
         </div>
    
     </div>
