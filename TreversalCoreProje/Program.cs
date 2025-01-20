@@ -14,6 +14,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Build.Execution;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Newtonsoft.Json.Linq;
 using TreversalCoreProje.CQRS.Handlers.DestinationHandlers;
 using TreversalCoreProje.Models;
@@ -59,6 +60,11 @@ builder.Services.AddMvc(config =>
 });
 builder.Services.AddMvc();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Login/SignIn/";
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -89,11 +95,5 @@ app.UseEndpoints(endpoints =>
 
     );
 });
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-      name: "areas",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
-});
+
 app.Run();

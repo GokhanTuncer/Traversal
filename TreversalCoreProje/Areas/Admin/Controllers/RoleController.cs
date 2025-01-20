@@ -74,7 +74,7 @@ namespace TreversalCoreProje.Areas.Admin.Controllers
 			return View(updateRoleViewModel);
 		}
 
-		[HttpGet]
+		[HttpPost]
 		[Route("UpdateRole/{id}")]
 		public async Task<IActionResult> UpdateRole(UpdateRoleViewModel updateRoleViewModel)
 		{
