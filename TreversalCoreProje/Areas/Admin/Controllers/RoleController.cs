@@ -11,12 +11,16 @@ namespace TreversalCoreProje.Areas.Admin.Controllers
 	{
 
 		private readonly RoleManager<AppRole> _roleManager;
+		private readonly UserManager<AppUser> _userManager;
 
-		public RoleController(RoleManager<AppRole> roleManager)
-		{
-			_roleManager = roleManager;
-		}
-		[Route("Index")]
+
+		public RoleController(RoleManager<AppRole> roleManager, UserManager<AppUser> userManager)
+        {
+            _roleManager = roleManager;
+            _userManager = userManager;
+        }
+
+        [Route("Index")]
 		public IActionResult Index()
 		{
 			var values = _roleManager.Roles.ToList();
@@ -84,5 +88,13 @@ namespace TreversalCoreProje.Areas.Admin.Controllers
 			await _roleManager.UpdateAsync(value);
 			return RedirectToAction("Index");
 		}
-	}
+
+        [Route("UserList")]
+        public IActionResult UserList()
+        {
+           var values = _userManager.Users.ToList();
+            return View(values);
+        }
+
+    }
 }
