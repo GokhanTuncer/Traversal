@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TreversalCoreProje.Controllers
 {
     [AllowAnonymous]
-    public class GuideController1 : Controller
+    public class GuideController : Controller
     {
         GuideManager guideManager = new GuideManager(new EfGuideDal());
         public IActionResult Index()
