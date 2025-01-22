@@ -2015,6 +2015,7 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\DestinationMediatR\" />
     <Folder Include="Areas\Member\Data\" />
+    <Folder Include="Resources\" />
     <Folder Include="wwwroot\pdfreports\" />
     <Folder Include="wwwroot\userimages\" />
   </ItemGroup>
