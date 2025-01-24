@@ -14,7 +14,7 @@ namespace DataAccessLayer.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=DESKTOP-EOIN7IK\\SQLEXPRESS;database=TraversalDB;Integrated Security = True;TrustServerCertificate=true;");
-           
+           //Değiştir
         }
 
         public DbSet<About> About { get; set; }
