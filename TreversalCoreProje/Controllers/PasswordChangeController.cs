@@ -72,5 +72,23 @@ namespace TreversalCoreProje.Controllers
             TempData["token"] = token;
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetPasswordViewModel)
+        {
+            var userid = TempData["userid"];
+            var token = TempData["token"];
+            if (userid == null || token == null)
+            {
+                //ERROR MESSAGE
+
+            }
+            var user = await _userManager.FindByIdAsync(userid.ToString());
+            var result = await _userManager.ResetPasswordAsync(user,token.ToString(),resetPasswordViewModel.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
+            return View();
+        }
     }
 }
