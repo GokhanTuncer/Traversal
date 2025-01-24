@@ -45,11 +45,12 @@ namespace TreversalCoreProje.Controllers
             MailboxAddress mailboxAddressTo = new MailboxAddress("User", forgetPasswordViewModel.Mail);
             mimeMessage.To.Add(mailboxAddressTo);
 
-            mimeMessage.Subject = "Şifre Değişiklik Talebi";
-
+            
             var bodyBuilder = new BodyBuilder();
             bodyBuilder.TextBody = paswordResetTokenLink;
             mimeMessage.Body = bodyBuilder.ToMessageBody();
+
+            mimeMessage.Subject = "Şifre Değişiklik Talebi";
 
             SmtpClient client = new SmtpClient();
             client.Connect("smtp.gmail.com", 587, false);
@@ -62,6 +63,14 @@ namespace TreversalCoreProje.Controllers
             return View();
 
             
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string userid, string token)
+        {
+            TempData["userid"] = userid;
+            TempData["token"] = token;
+            return View();
         }
     }
 }
