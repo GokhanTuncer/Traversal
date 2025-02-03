@@ -59,22 +59,22 @@ Author URL: http://w3layouts.com
 					<form method="post" class="signin-form">
 						<div class="form-input">
 							<label>Adınız</label>
-							<input type="text"   asp-for="Name"/>
-							<span asp-validation-for="Name" class="text-danger"></span>
+							<input type="text" asp-for="Name" required placeholder="Ad"  />
+							<span asp-validation-for="Name" style="color: #ff0000"></span>
 						</div>
 						<div class="form-input">
 							<label>Soyadınız</label>
-							<input type="text" asp-for="Surname"  />
+							<input type="text" asp-for="Surname" required placeholder="Soyad" />
 							<span asp-validation-for="Surname" class="text-danger"></span>
 						</div>
 						<div class="form-input">
 							<label>Kullanıcı Adınız</label>
-							<input type="text" asp-for="Username" />
+							<input type="text" asp-for="Username" required placeholder="Kullanıcı Adı" />
 							<span asp-validation-for="Username" class="text-danger"></span>
 						</div>
 						<div class="form-input">
 							<label>Mail Adresiniz</label>
-							<input type="email" asp-for="Email" />
+							<input type="email" asp-for="Email" required placeholder="Mail Adresi" />
 							<span asp-validation-for="Email" class="text-danger"></span>
 						</div>
 						<div class="form-input">
